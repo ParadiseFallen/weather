@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+header {
+  height: auto;
+}
+header .logo-container .logo {
+  line-height: 100px;
+  color: #33EEEE;
+  font-size: 160px;
+  text-decoration: none;
+  position: relative;
+}
+header .logo-container .logo::after {
+  font-weight: 600;
+  color: #EE33EE;
+  line-height: 20px;
+  font-size: 20px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -20%);
+  content: "current weather";
+  text-transform: uppercase;
+  position: absolute;
+}
+header form {
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+}
+header form .input-field {
+  width: 80%;
+}
+header form button {
+  vertical-align: middle;
+}
+header form .dropdown-content li > a,
+header form .dropdown-content li > span {
+  font-size: 16px;
+  color: #000 !important;
+}
+header form .autocomplete-content li .highlight {
+  font-size: 20px;
+  color: red !important;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,71 @@
+@import 'adaptive';
+@import 'colors';
+@import 'fonts';
+@import 'variables';
+
+*
+{
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+  
+header
+{
+    height: auto;
+    .logo-container
+    {
+        .logo
+        {
+            line-height: 100px;
+            color:#33EEEE;
+            font-size: 160px;
+            text-decoration: none;
+            position: relative;
+            &::after
+            {
+                font-weight: 600;
+                color: #EE33EE;
+                line-height: 20px;
+                font-size: 20px;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-20%);
+                content: 'current weather';
+                text-transform: uppercase;
+                position: absolute;
+            }
+        }
+    }
+    form
+    {
+        align-items: center;
+        justify-content: center;
+        justify-content: space-between;
+        .input-field
+        {
+            width: 80%;
+        }
+        button
+        {
+            vertical-align: middle;
+        }
+        .dropdown-content li>a, 
+            .dropdown-content li>span 
+            {
+                font-size: 16px;
+                color: #000!important;
+            }
+        .autocomplete
+        {
+            
+            &-content li .highlight 
+            {
+                font-size: 20px;
+                color: red!important;
+            }
+        }
+       
+    }
+    
+}
