@@ -46,4 +46,8 @@ header form .autocomplete-content li .highlight {
   color: red !important;
 }
 
+#current-weather * {
+  font-size: 30px !important;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -1,33 +1,43 @@
 const baseRestApiUrl = '/api/'
 const APIkey = 'e618cba18842237ac0d638884c3a4574'
+const hogan = require('hogan.js')
 // TODO load last city from 
 LoadAutocomplites()
+const template = hogan.compile(`<div class="container">
+<div class="row">
+  <div class="col">City name : {{name}}</div>
+  <div class="col">Coord : {{coord.lat}} {{coord.lon}}</div>
+</div>
+<div class="row">
+  <div class="col">Temp : {{main.temp}} °C</div>
+  <div class="col">Pressure : {{main.pressure}}</div>
 
+</div>
+</div>`)
 
-function WeatherByCityName(event) {
+WeatherByCityName = function (event) {
   event.preventDefault()
   let requestData = {
     method: 'GET',
   }
   const currentWeatherRequest = new Request(`http://api.openweathermap.org/data/2.5/weather?q=${document.forms['city-search'].elements['city-name'].value}&appid=${APIkey}`,
     requestData)
-  const weekWeatherRequest = new Request(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${document.forms['city-search'].elements['city-name'].value}&appid=${APIkey}`,
-    requestData)
+  
 
   fetch(currentWeatherRequest).then(
     i => RenderCurrentWeather(i.json())
   )
-  fetch(weekWeatherRequest).then(
-    i => RenderWeekWeather(i.json())
-  )
+  
 }
 
-function RenderCurrentWeather(weather) {
-  console.log(weather)
+async function RenderCurrentWeather(weather) {
+  let req = await weather
+  console.log(req)
+  req.main.temp -= 273.15
+  req.main.temp = req.main.temp.toFixed(2)
+  document.querySelector('#current-weather').innerHTML = template.render(req)
 }
-function RenderWeekWeather(weather) {
-  console.log(weather)
-}
+
 
 function LoadAutocomplites() {
   let requestData = {
