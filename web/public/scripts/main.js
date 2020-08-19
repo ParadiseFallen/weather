@@ -1,6 +1,8 @@
 const baseRestApiUrl = '/api/'
 const APIkey = 'e618cba18842237ac0d638884c3a4574'
 const hogan = require('hogan.js')
+const $ = require('jquery')
+
 // TODO load last city from 
 LoadAutocomplites()
 const template = hogan.compile(`<div class="container">
@@ -35,7 +37,7 @@ async function RenderCurrentWeather(weather) {
   console.log(req)
   req.main.temp -= 273.15
   req.main.temp = req.main.temp.toFixed(2)
-  document.querySelector('#current-weather').innerHTML = template.render(req)
+  $('#current-weather').innerHTML = template.render(req)
 }
 
 
@@ -46,7 +48,7 @@ function LoadAutocomplites() {
   const request = new Request(baseRestApiUrl + 'city-list', requestData)
   fetch(request).then(function (response) {
     response.json().then(data => {
-      var elems = document.querySelectorAll('.autocomplete');
+      var elems = $('.autocomplete');
       var instances = M.Autocomplete.init(elems,
         {
           'data': data,

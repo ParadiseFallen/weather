@@ -5,14 +5,14 @@
   "main": "web/app.js",
   "dependencies": {
     "express": "^4.17.1",
-    "hogan.js": "^3.0.2"
+    "hogan.js": "^3.0.2",
+    "jquery": "^3.5.1"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-bundle" : "browserify  web/public/scripts/main.js --s module >  web/public/scripts/bundle.js",
-    "build-style" : "sass source/style.scss web/public/styles/style.css"
-
+    "build-bundle": "browserify  web/public/scripts/main.js --s module >  web/public/scripts/bundle.js",
+    "build-style": "sass source/style.scss web/public/styles/style.css"
   },
   "repository": {
     "type": "git",
